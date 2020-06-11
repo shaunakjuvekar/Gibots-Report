@@ -12,7 +12,8 @@ mongoose.connect("mongodb://localhost:27017/peopleDB",{ useNewUrlParser: true , 
 
 app.use("/report",getReport);
 
-
 app.listen(3000,()=>{
     console.log("Server is running");
 })
+
+

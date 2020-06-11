@@ -1,23 +1,8 @@
-body{
-    background-color: lightblue;
+h1{
+    font-weight: bold;
 }
-
-.container{
-    width: 30%;
-}
-
-.row{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-
-}
-
-.col{
-    display: flex;
-    flex-direction: column;
-}
-p{
-    text-align: center;
-}
+table, tr, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+  }

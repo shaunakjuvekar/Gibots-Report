@@ -11,44 +11,39 @@
 
   </head>
   <body>
-
-        <div class="container"> 
-            <p>Male</p>
-            <div class="row">
-                
-                <div class="col">
-                    Nationality
-                </div>
-                <div class="col">
-                    0-30
-                </div>
-                <div class="col">
-                    30-50
-                </div>
-                <div class="col">
-                    50 above
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    NL
-                </div>
-                <div class="col">
-                    2
-                </div>
-                <div class="col">
-                    0
-                </div>
-                <div class="col">
-                    5
-                </div>
-            </div>
-        </div>
-
-       
-
+    <table>
+        <h1>Male</h1>
+        <tr>
+            <td>Nationality</td>
+            <td> 0-30</td>
+            <td> 30-50</td>
+            <td> 50 above</td>
+        </tr>
+        <%  Users.male.forEach(value => {  %>
+        <tr>
+            <td><%= value.nat  %></td>
+            <td><%= value.Range0To30  %></td>
+            <td><%= value.Range30To50  %></td>
+            <td><%= value.Range50AndAbove  %></td>
+            <% })  %>
+        </tr>
+    </table>
+    <table>
+        <h1>Female</h1>
+        <tr>
+            <td>Nationality</td>
+            <td> 0-30</td>
+            <td> 30-50</td>
+            <td> 50 above</td>
+        </tr>
+        <%  Users.female.forEach(value => {  %>
+        <tr>
+            <td><%= value.nat  %></td>
+            <td><%= value.Range0To30  %></td>
+            <td><%= value.Range30To50  %></td>
+            <td><%= value.Range50AndAbove  %></td>
+            <% })  %>
+        </tr>
+    </table>
   </body>
-
-
   </html>

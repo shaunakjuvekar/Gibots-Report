@@ -4,6 +4,7 @@ const request = require("request");
 
 
 const Person = require("../models/user");
+const generateReport = require("../controller/index");
 
 // Request variables
 let results = "10";
@@ -11,13 +12,9 @@ const url =  'https://randomuser.me/api/?results=' + results;
 
 router.get("/",(req,res,next)=>{
     request.get(url,function(request,response,data){
-        
-        // let maleAges = [0,0,0]        // <30, 30-50,>50
-        // let femaleAges = [0,0,0]        // <30, 30-50,>50
 
         let body = JSON.parse(data);
-        //console.log(body);
-        
+    
         let peopleArray = body.results
 
         peopleArray.forEach(person=>{
@@ -26,34 +23,17 @@ router.get("/",(req,res,next)=>{
                 if (err){
                     console.log(err);
                 }
-                else{
-                    console.log("Person registered in dB");  
-                }
             });
                  
         })
-        
-        setTimeout(()=>{
-            Person.find({},user=>{
-            console.log("User is ->");
-            console.log(user);
-        })}
-        ,3000)
 
+        generateReport()
+        .then(data => {
+            let finalObj = data;  
+            res.render("report-view",{Users:finalObj})
 
-
-        res.render("report-view")
-
-        
+        })
     })
 })
 
 module.exports = router
-
-
-
-
-
-  // let nationality = person.nat;
-        // let gender  = person.gender;
-        // let age = person.dob.age
